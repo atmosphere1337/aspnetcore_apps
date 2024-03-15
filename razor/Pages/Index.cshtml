@@ -1,10 +1,30 @@
 ﻿@page
-@model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model razor.Pages.IndexModel;
+<table border="1">
+    @foreach (var city in Model.context) {
+        <tr>
+            <td>@city.CityId</td>
+            <td>@city.Name</td>
+            <td>@city.Country</td>
+            <td>@city.Population</td>
+        </tr>
+    }    
+</table>
+<form asp-page-handler="Create" method="POST">
+    @Html.AntiForgeryToken()
+    <input name="name">
+    <input name="country">
+    <input name="population">
+    <button type="submit">Create</button>
+</form>
+<form method="POST" asp-page-handler="Update">
+    <input name="id">
+    <input name="city">
+    <input name="country">
+    <input name="population">
+    <input type="submit">
+</form>
+<form method="POST" asp-page-handler="Delete">
+    <input name="id">
+    <input type="submit">
+</form>
