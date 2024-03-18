@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-public class BloggingContext : DbContext
+public class CityContext : DbContext
 {
     public DbSet<City> Cities { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder options)

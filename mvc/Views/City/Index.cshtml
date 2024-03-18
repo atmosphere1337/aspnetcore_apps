@@ -1,6 +1,31 @@
 City
-@model mvc.Controllers.Wrapper
+@model List<City>
 
-<div>@ViewData["context"]</div>
-<div>@ViewBag.context</div>
-<div>@Model.Msg </div>
+<table border="1">
+    @foreach (var city in @Model) {
+        <tr>
+            <td>@city.CityId</td>            
+            <td>@city.Name</td>
+            <td>@city.Country</td>
+            <td>@city.Population</td>
+        </tr>
+    }
+</table>
+
+<form method="POST" action="City/Create">
+    <input name="Name">
+    <input name="Country">
+    <input name="Population">
+    <input type="submit"> 
+</form>
+<form method="POST" action="City/Update">
+    <input name="CityId">
+    <input name="Name">
+    <input name="Country">
+    <input name="Population">
+    <input type="submit"> 
+</form>
+<form method="POST" action="City/Delete">
+    <input name="CityId">
+    <input type="submit"> 
+</form>
