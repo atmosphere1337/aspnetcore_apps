@@ -51,6 +51,11 @@ namespace mvc.Controllers
             }            
             return Redirect("/City");
         }
+        [HttpPost]
+        public ActionResult Secret() {
+            //HttpContext.Request.BodyReader
+            return Content($"");
+        }
     }
     public class Wrapper {
         public string Msg {get; set;}
